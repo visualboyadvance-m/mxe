@@ -2,10 +2,10 @@
 
 PKG             := gcc
 $(PKG)_IGNORE   := 5%
-$(PKG)_VERSION  := 4.9.4
-$(PKG)_CHECKSUM := 6c11d292cd01b294f9f84c9a59c230d80e9e4a47e5c6355f046bb36d4f358092
+$(PKG)_VERSION  := 6.2.0
+$(PKG)_CHECKSUM := ba8c49e54f1b3e04434d6261e5718ed843d1ba3e54a070740913acfbd815e577
 $(PKG)_SUBDIR   := gcc-$($(PKG)_VERSION)
-$(PKG)_FILE     := gcc-$($(PKG)_VERSION).tar.bz2
+$(PKG)_FILE     := gcc-$($(PKG)_VERSION).tar.gz
 $(PKG)_URL      := http://ftp.gnu.org/pub/gnu/gcc/gcc-$($(PKG)_VERSION)/$($(PKG)_FILE)
 $(PKG)_URL_2    := ftp://ftp.mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-$($(PKG)_VERSION)/$($(PKG)_FILE)
 $(PKG)_DEPS     := binutils mingw-w64
@@ -29,6 +29,8 @@ define $(PKG)_CONFIGURE
         --libdir='$(PREFIX)/lib' \
         --enable-languages='c,c++,objc,fortran' \
         --enable-version-specific-runtime-libs \
+        --enable-lto \
+        --enable-libssp \
         --with-gcc \
         --with-gnu-ld \
         --with-gnu-as \
