@@ -2,8 +2,8 @@
 
 PKG             := cloog
 $(PKG)_IGNORE   :=
-$(PKG)_VERSION  := 0.18.1
-$(PKG)_CHECKSUM := 02500a4edd14875f94fe84cbeda4290425cb0c1c2474c6f75d75a303d64b4196
+$(PKG)_VERSION  := 0.18.3
+$(PKG)_CHECKSUM := 460c6c740acb8cdfbfbb387156b627cf731b3837605f2ec0001d079d89c69734
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.gz
 $(PKG)_URL      := http://www.bastoul.net/cloog/pages/download/$($(PKG)_FILE)
@@ -26,7 +26,8 @@ define $(PKG)_BUILD
     cd '$(1)' && ./configure \
         $(MXE_CONFIGURE_OPTS) \
         --with-gmp-prefix='$(PREFIX)/$(TARGET)' \
-        --with-isl-prefix='$(PREFIX)/$(TARGET)'
+        --with-isl-prefix='$(PREFIX)/$(TARGET)' \
+        --program-suffix=-isl
     $(MAKE) -C '$(1)' -j '$(JOBS)' $(if $(BUILD_SHARED),LDFLAGS=-no-undefined)
     $(MAKE) -C '$(1)' -j '$(JOBS)' install
 endef

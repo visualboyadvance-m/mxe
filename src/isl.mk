@@ -2,10 +2,10 @@
 
 PKG             := isl
 $(PKG)_IGNORE   :=
-$(PKG)_VERSION  := 0.12.2
-$(PKG)_CHECKSUM := f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4
+$(PKG)_VERSION  := 0.16.1
+$(PKG)_CHECKSUM := 45292f30b3cb8b9c03009804024df72a79e9b5ab89e41c94752d6ea58a1e4b02
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
-$(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.bz2
+$(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_URL      := http://isl.gforge.inria.fr/$($(PKG)_FILE)
 $(PKG)_URL_2    := ftp://gcc.gnu.org/pub/gcc/infrastructure/$($(PKG)_FILE)
 $(PKG)_TARGETS  := $(BUILD) $(MXE_TARGETS)
