@@ -2,8 +2,8 @@
 
 PKG             := cloog
 $(PKG)_IGNORE   :=
-$(PKG)_VERSION  := 0.18.3
-$(PKG)_CHECKSUM := 460c6c740acb8cdfbfbb387156b627cf731b3837605f2ec0001d079d89c69734
+$(PKG)_VERSION  := 0.18.4
+$(PKG)_CHECKSUM := 325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.gz
 $(PKG)_URL      := http://www.bastoul.net/cloog/pages/download/$($(PKG)_FILE)
@@ -23,6 +23,7 @@ define $(PKG)_UPDATE
 endef
 
 define $(PKG)_BUILD
+    cd '$(1)' && autoreconf -fi -I'$(PREFIX)/$(TARGET)/share/aclocal'
     cd '$(1)' && ./configure \
         $(MXE_CONFIGURE_OPTS) \
         --with-gmp-prefix='$(PREFIX)/$(TARGET)' \

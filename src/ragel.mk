@@ -20,7 +20,7 @@ endef
 define $(PKG)_BUILD_$(BUILD)
     cd '$(BUILD_DIR)' && '$(SOURCE_DIR)/configure' \
         --prefix='$(PREFIX)/$(BUILD)' \
-        CXXFLAGS=-std=c++03
+        CXXFLAGS=-std=gnu++03
     $(MAKE) -C '$(BUILD_DIR)' -j '$(JOBS)'
     $(MAKE) -C '$(BUILD_DIR)' -j 1 install
 endef
